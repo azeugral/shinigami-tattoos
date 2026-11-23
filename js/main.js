@@ -80,7 +80,7 @@
 
   /* ---------- trabalhos ---------- */
   var grade = d.getElementById('grade'), mais = d.getElementById('mais'), filtro = 'todos';
-  var passoN = 24, limite = passoN;
+  var passoN = innerWidth < 760 ? 12 : 24, limite = passoN;
   PECAS.forEach(function (p, i) {
     var f = d.createElement('figure'); f.className = 'item'; f.tabIndex = 0; f.dataset.i = i;
     f.setAttribute('role', 'button'); f.setAttribute('aria-label', 'Ampliar: ' + p.l);
@@ -149,6 +149,14 @@
     };
     fl.appendChild(f);
   });
+  var flN = innerWidth < 760 ? 8 : FLASH.length;
+  if (flN < FLASH.length) {
+    [].slice.call(fl.children, flN).forEach(function (f) { f.classList.add('sai'); });
+    var wm = d.createElement('div'); wm.className = 'flash-mais';
+    wm.innerHTML = '<button class="bt bt-linha" type="button">Ver todos os desenhos</button>';
+    fl.after(wm);
+    wm.firstChild.onclick = function () { [].slice.call(fl.children).forEach(function (f) { f.classList.remove('sai'); }); wm.remove(); observar(); };
+  }
   observar();
 
   /* ---------- Pokédex ---------- */

@@ -293,3 +293,20 @@ section[id]{scroll-margin-top:60px}
 }
 .copiado{margin:0;text-align:center;color:var(--osso);font-weight:600}
 .rodape .r-logo{display:block;margin:0 auto 14px}
+
+/* celular: grupos sempre simétricos e seções curtas */
+@media (max-width:760px){
+  .filtros{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:440px;margin-left:auto;margin-right:auto}
+  .filtros button{grid-column:auto;white-space:nowrap}
+  .filtros > :first-child:nth-last-child(odd){grid-column:1/-1}
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .chips label{display:block}
+  .chips span{display:flex;align-items:center;justify-content:center;height:100%;text-align:center}
+  .chips > :last-child:nth-child(odd){grid-column:1/-1}
+}
+.flash .sai{display:none}
+.flash-mais{display:flex;justify-content:center;margin-top:28px}
+@media (max-width:760px){
+  .flash figcaption b{min-height:2.1em;display:flex;align-items:center;justify-content:center}
+  .nome{font-size:min(11.4vw,72px)}
+}
